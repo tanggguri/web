@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
+  <title>2025 PORTFOLIO</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/태양 오렌지.png" type="image/png">
 </head>
 <body>
   <div id="container">
@@ -41,11 +42,24 @@
         <img src="메뉴/리디자인.jpg" class="popup-img" id="popup3">
         <img src="메뉴/패키징.jpg" class="popup-img" id="popup4">
         <img src="메뉴/상세페이지.jpg" class="popup-img" id="popup5">
-        <img src="메뉴/상세페이지.jpg" class="popup-img" id="popup6">
+        <img src="메뉴/배너.jpg" class="popup-img" id="popup6">
+          <button id="scrollTopBtn">▲ Top</button>
       </div>
       </div>
     </section>
-    <section class="page page4"></section>
+    <section class="page page4">
+  <p class="ml15 contact-left">
+    <span class="text-wrapper">
+      <span class="letters">Contact me</span>
+    </span>
+  </p>
+
+  <p class="ml15 contact-right">
+    <span class="text-wrapper">
+      <span class="letters">tanggguri@naver.com</span>
+    </span>
+  </p>
+</section>
   </div>
 
   <script src="script.js"></script>
@@ -62,8 +76,8 @@ anime.timeline({loop: true})
     targets: '.typing-name .letter',
     translateY: ["1.1em", 0],
     translateZ: 0,
-    duration: 2000,
-    delay: (el, i) => 50 * i,
+    duration: 4000,
+    // delay: (el, i) => 50 * i,
     easing: "easeOutExpo"
   });
 
@@ -73,8 +87,8 @@ anime.timeline({loop: true})
     targets: '.typing-year .letter',
     translateY: ["1.1em", 0],
     translateZ: 0,
-    duration: 2000,
-    delay: (el, i) => 40 * i + 1200,
+    duration: 4000,
+    // delay: (el, i) => 40 * i + 1200,
     easing: "easeOutExpo"
   });
 

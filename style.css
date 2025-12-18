@@ -1,65 +1,81 @@
+/* ===============================
+   Font
+================================ */
 @font-face {
-    font-family: 'Xcu';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2506-1@1.0/exqt.woff2') format('woff2');
-    font-weight: normal;
-    font-display: swap;
+  font-family: 'Xcu';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2506-1@1.0/exqt.woff2') format('woff2');
+  font-weight: normal;
+  font-display: swap;
 }
+
+/* ===============================
+   Reset & Base
+================================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-   font-family: 'Xcu';
-   font-size: 32px;
-}
-
-.typing-name .letter {
-  color: #757377; /* 이름 흰색 */
-}
-
-.typing-year .letter {
-  color: #757377; /* 연도 노란색 */
+  font-family: 'Xcu';
 }
 
 html, body {
   width: 100%;
   height: 100%;
-  overflow: hidden; 
+  overflow: hidden; /* 원페이지 스크롤용 */
 }
 
+/* ===============================
+   Container & Page
+================================ */
 #container {
   width: 100%;
   height: 100%;
 }
 
 .page {
-     width: 1920px;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    font-size: 60px;
-    font-weight: bold;
-    box-sizing: border-box;
-    padding-top: 80px;
-    padding-left: 272px;
+  width: 1920px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 80px;
+  padding-left: 272px;
+  font-size: 32px;
+  font-weight: bold;
+  box-sizing: border-box;
+  position: relative;
 }
 
-
+/* ===============================
+   Page Backgrounds
+================================ */
 .page1 { background: url(images/커버.png); }
+.page2 { background: url(images/프로필.png); }
+.page3 { background: url(images/메뉴.png); }
+.page4 { background: url(images/마지막.jpg); }
 
-.page1 .title{
+/* ===============================
+   Page1, Page4 Text
+================================ */
+.page1 .title,
+.page4 .contact-left,
+.page4 .contact-right {
+  font-size: 32px;
+}
+
+.page1 .title {
   display: flex;
   justify-content: flex-start;
   gap: 1060px;
   width: 100%;
 }
+
 .ml6 {
   position: relative;
   font-weight: bold;
 }
 
 .ml6 .text-wrapper {
-  position: relative;
   display: inline-block;
   overflow: hidden;
 }
@@ -68,112 +84,131 @@ html, body {
   display: inline-block;
 }
 
-/* 처음엔 안 보이게 */
 .ml6 .letter {
   display: inline-block;
   line-height: 1em;
   transform-origin: 0 0;
 }
 
+.typing-name .letter,
+.typing-year .letter {
+  color: #636363;
+}
 
-.page2 { background: url(images/프로필.png); }
-.page3 { background: url(images/메뉴.png); }
-.page4 { background: url(images/마지막.png); }
+/* ===============================
+   Page4 Contact Animation
+================================ */
+.ml15 {
+  position: absolute;
+  bottom: 60px;
+  font-size: 20px;
+  letter-spacing: 0.2em;
+  overflow: hidden;
+}
 
+.page4 .contact-left,
+.page4 .contact-right {
+  color: #9b8f71;
+}
+
+.page4 .contact-left { left: 200px; }
+.page4 .contact-right { right: 200px; }
+
+.ml15 .letter {
+  display: inline-block;
+  transform-origin: 50% 100%;
+}
+
+/* ===============================
+   Menu (Page3)
+================================ */
 .menu {
-  position: relative; /* 메뉴 버튼 개별 위치 지정 가능 */
+  position: relative;
   width: 100%;
   height: 100%;
 }
 
 .menu-btn {
-  position: absolute;   /* 이제 좌표 지정 가능 */
+  position: absolute;
   width: 280px;
   height: auto;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
-.menu-btn[data-popup="1"] { 
-    top: 280px;
-    left: 510px; }
-.menu-btn[data-popup="2"] { 
-    top: 200px;
-    left: 880px; }
-.menu-btn[data-popup="3"] { 
-    top: 300px;
-    left: 1190px; }
-.menu-btn[data-popup="4"] { 
-    top: 510px;
-    left: 540px;}
-.menu-btn[data-popup="5"] { 
-    top: 570px;
-    left: 860px; }
-.menu-btn[data-popup="6"] { 
-    top: 540px;
-    left: 1200px; }
 
-    .menu-btn:hover {
+.menu-btn:hover {
   transform: scale(1.1) rotate(5deg);
-  transition: transform 0.3s ease;
   filter: brightness(1.2) saturate(1.3);
 }
 
+.menu-btn[data-popup="1"] { top: 170px; left: 60px; }
+.menu-btn[data-popup="2"] { top: 110px; left: 540px; }
+.menu-btn[data-popup="3"] { top: 170px; left: 990px; }
+.menu-btn[data-popup="4"] { top: 420px; left: 90px; }
+.menu-btn[data-popup="5"] { top: 490px; left: 530px; }
+.menu-btn[data-popup="6"] { top: 510px; left: 1020px; }
 
-
-/* 팝업 */
+/* ===============================
+   Page3 Popup
+================================ */
 .popup {
-  display: none;
-  position: absolute; /* 페이지 내부에 표시 */
-  top: 0; left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-  height: 100%;
+  display: none;                 /* 초기 숨김 */
+  position: fixed;               
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0,0,0,0.8);
   justify-content: center;
-  align-items: flex-start; /* 세로 스크롤 가능하게 */
-  overflow-y: auto;        /* 세로 스크롤 */
-  z-index: 100;
-  padding: 50px 0;
-}
-
-.popup::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* 스크롤바 트랙 (배경) */
-.popup::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0); /* parent와 동일 */
-}
-
-/* 스크롤바 핸들 */
-.popup::-webkit-scrollbar-thumb {
-  background: rgb(255, 255, 255);
-  border-radius: 10px;
-}
-
-/* hover 시 */
-.popup::-webkit-scrollbar-thumb:hover {
-  background: rgba(150, 150, 150, 0.6);
-}
-
-.popup-inner {
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
+  align-items: flex-start;
+  overflow-y: auto;
+  z-index: 1000;
+  padding-top: 50px;
+    scroll-behavior: smooth;
 }
 
 .popup-img {
-  display: none;
-  width: auto;
-  max-width: 100%;
-  max-height: none; /* 높이 제한 해제 */
+  display: none; /* 초기 숨김 */
+  max-width: 80%;
+  margin: 50px auto;
 }
 
+/* 팝업 스크롤바 커스텀 */
+.popup::-webkit-scrollbar { width: 10px; }
+.popup::-webkit-scrollbar-track { background: transparent; }
+.popup::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 10px;
+}
+.popup::-webkit-scrollbar-thumb:hover { background: rgba(150,150,150,0.6); }
+
+/* 닫기 버튼 */
 #close {
   position: absolute;
-  top: 20px; right: 40px;
+  top: 20px;
+  right: 40px;
   font-size: 50px;
   color: #fff;
   cursor: pointer;
   z-index: 101;
+  transition: color 0.2s;
+}
+#close:hover { color: #ec8729; }
+
+/* 상단 스크롤 버튼 */
+#scrollTopBtn {
+position: fixed;
+    /* top: -280px; */
+    right: 20px;
+    z-index: 102;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 1;  
+    width: 100px;
+    transform: translateY(834px);
 }
